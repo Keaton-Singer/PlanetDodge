@@ -64,7 +64,7 @@ def collision_check(shuttle, planet):
 
 def generate_planets():
     generated_planets = []
-    planet_choices = ["planet_one.png", "planet_two.png", "planet_three.png", "planet_four.png"]
+    planet_choices = ["images/planet_one.png", "images/planet_two.png", "images/planet_three.png", "images/planet_four.png"]
     for iteration in range(6):
         planet_selection = randint(0, 3)
         planet_image = pygame.image.load(planet_choices[planet_selection])
@@ -79,7 +79,7 @@ def generate_planets():
 
 
 def generate_shuttle():
-    shuttle_image = pygame.image.load("shuttle.png")
+    shuttle_image = pygame.image.load("images/shuttle.png")
     shuttle_image = pygame.transform.scale(shuttle_image, (112, 112))
     generated_shuttle = Shuttle(shuttle_image)
     return generated_shuttle
@@ -87,8 +87,8 @@ def generate_shuttle():
 
 pygame.init()
 screen = pygame.display.set_mode((500, 750))
-background = pygame.image.load("pix.png")
-shuttle_icon = pygame.image.load("shuttle.png")
+background = pygame.image.load("images/space.png")
+shuttle_icon = pygame.image.load("images/shuttle.png")
 pygame.display.set_caption("PLANET DODGE")
 pygame.display.set_icon(shuttle_icon)
 font_type = pygame.font.SysFont("Comic Sans", 45)
