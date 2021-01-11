@@ -12,9 +12,9 @@ class Planet:
         self.velocity = velocity
     def planet_velocity(self, time):
         if (self.velocity[0] <= 5 and self.velocity[1] == "down"):
-            self.velocity[0] = 1 + (time / 60)
+            self.velocity[0] = 1 + (time / 30)
         elif (self.velocity[0] >= -5):
-            self.velocity[0] = -1 - (time / 60)
+            self.velocity[0] = -1 - (time / 30)
     def planet_position(self, screen):
         self.y_position += self.velocity[0]
         if (self.velocity[1] == "down" and self.y_position >= 816):
@@ -100,7 +100,7 @@ def new_game():
     time_start = clock()
     while (True):
         screen.blit(background, (0, 0))
-        time_display = font_type.render("SCORE: " + str(int(clock() - time_start)), True, (255, 255, 255))
+        time_display = font_type.render("Score: " + str(int(clock() - time_start)), True, (255, 255, 255))
         screen.blit(time_display, (10, 10))
         for event in pygame.event.get():
             if (event.type == pygame.QUIT):
