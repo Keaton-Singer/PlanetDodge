@@ -1,7 +1,7 @@
 import pygame
 from random import randint
 from math import sqrt
-from time import clock
+from time import time as tim
 
 
 class Planet:
@@ -92,16 +92,17 @@ shuttle_icon = pygame.image.load("images/shuttle.png")
 pygame.display.set_caption("PLANET DODGE")
 pygame.display.set_icon(shuttle_icon)
 font_type = pygame.font.SysFont("Comic Sans", 45)
+font_replay = pygame.font.SysFont("Comic Sans", 30)
 
 
 def new_game():
     planets = generate_planets()
     shuttle = generate_shuttle()
-    time_start = clock()
+    time_start = tim()
     while (True):
         screen.blit(background, (0, 0))
-        time_display = font_type.render("Score: " + str(int(clock() - time_start)), True, (255, 255, 255))
-        screen.blit(time_display, (10, 10))
+        time_display = font_type.render("Score: " + str(int(tim() - time_start)), True, (255, 255, 255))
+        screen.blit(time_display, (10, 0))
         for event in pygame.event.get():
             if (event.type == pygame.QUIT):
                 exit()
@@ -121,7 +122,7 @@ def new_game():
                     shuttle.y_speed = 0
         shuttle.shuttle_position(screen)
         for planet in planets:
-            current_time = clock() - time_start
+            current_time = tim() - time_start
             planet.planet_velocity(current_time)
             planet.planet_position(screen)
             if (collision_check(planet, shuttle) == True):
@@ -131,8 +132,8 @@ def new_game():
 
 new_game()
 while (True):
-    pygame.draw.rect(screen, (255, 255, 255), (20, 362, 462, 50))
-    continue_game = font_type.render("PRESS SPACE TO PLAY AGAIN", True, (0, 0, 0))
+    pygame.draw.rect(screen, (255, 255, 255), (20, 362, 462, 70))
+    continue_game = font_replay.render("PRESS SPACE TO PLAY AGAIN", True, (0, 0, 0))
     screen.blit(continue_game, (25, 375))
     pygame.display.update()
     for event in pygame.event.get():
