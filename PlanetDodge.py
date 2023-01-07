@@ -108,13 +108,13 @@ def new_game():
                 exit()
             if (event.type == pygame.KEYDOWN):
                 if (event.key == pygame.K_a):
-                    shuttle.x_speed = -5
+                    shuttle.x_speed = -3
                 if (event.key == pygame.K_d):
-                    shuttle.x_speed = 5
+                    shuttle.x_speed = 3
                 if (event.key == pygame.K_w):
-                    shuttle.y_speed = -5
+                    shuttle.y_speed = -3
                 if (event.key == pygame.K_s):
-                    shuttle.y_speed = 5
+                    shuttle.y_speed = 3
             if (event.type == pygame.KEYUP):
                 if (event.key == pygame.K_a or event.key == pygame.K_d):
                     shuttle.x_speed = 0
